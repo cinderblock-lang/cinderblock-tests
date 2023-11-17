@@ -1,5 +1,5 @@
 {
-  "name": "simple_maths",
+  "name": "externals",
   "files": ["./src/main.cb"],
   "libs": [],
   "targets": ["linux"],

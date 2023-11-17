@@ -1,15 +1,17 @@
-namespace std.io.__internal {
-  lib "" {
-    
+namespace std.io {
+  export fn print(data: string): int {
+    asm (a: 4i, b: 1i, c: data.CBuffer(), d: data.CSize()): a as read `int $0x80\n\t`;
+
+    return 0i;
   }
 }
 
 namespace App {
+  using std.io;
+
   export fn main(): int {
+    store message = "Hello world";
 
-    store test = 1i;
-
-    store other = test + 3i;
-    return other;
+    return message.print();
   }
 }
