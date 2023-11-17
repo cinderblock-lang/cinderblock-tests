@@ -1,0 +1,7 @@
+{
+  "name": "simple_maths",
+  "files": ["./src/main.cb"],
+  "libs": [],
+  "targets": ["linux"],
+  "bin": "bin"
+}

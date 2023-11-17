@@ -1,0 +1,15 @@
+namespace std.io.__internal {
+  lib "" {
+    
+  }
+}
+
+namespace App {
+  export fn main(): int {
+
+    store test = 1i;
+
+    store other = test + 3i;
+    return other;
+  }
+}
