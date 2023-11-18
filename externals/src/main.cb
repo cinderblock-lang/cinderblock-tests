@@ -1,6 +1,5 @@
 namespace std.io {
   export fn print(data: string): int {
-    asm (a: 4i, b: 1i, c: data.CBuffer(), d: data.CSize()): a as read `int $0x80\n\t`;
 
     return 0i;
   }
