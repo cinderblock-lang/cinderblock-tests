@@ -1,0 +1,17 @@
+namespace App {
+  using std.io;
+
+  fn LambdaTest(): () -> string {
+    store message = "This is in a lambda";
+
+    return fn () -> message;
+  }
+
+  export fn main(): int {
+    store get_message = LambdaTest();
+
+    store message = get_message();
+
+    return message.log();
+  }
+}

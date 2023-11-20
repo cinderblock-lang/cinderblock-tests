@@ -9,7 +9,6 @@ run_code() {
   stdout=$(eval "./bin/linux/$2")
 
   resp=$?;
-  echo $resp
 
   if [ "$resp" != "$3" ]; then
     errors=true;
@@ -27,6 +26,7 @@ run_code() {
 run_code 'hello-world' 'hello_world' 0 ""
 run_code 'simple-maths' 'simple_maths' 4 ""
 run_code 'externals' 'externals' 12 "Hello world"
+run_code 'lambdas' 'lambdas' 20 "This is in a lambda"
 
 if [ $errors = true ]; then
   echo "You had some errors. Check the logs above.";
