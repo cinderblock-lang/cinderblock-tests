@@ -1,16 +1,9 @@
-namespace std.io {
-  export fn print(data: string): int {
-
-    return 0i;
-  }
-}
-
 namespace App {
   using std.io;
 
   export fn main(): int {
     store message = "Hello world";
 
-    return message.print();
+    return message.log();
   }
 }
