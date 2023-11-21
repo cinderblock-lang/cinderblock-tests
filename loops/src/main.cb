@@ -1,0 +1,16 @@
+namespace App {
+  using std.iterable;
+  using std.io;
+
+  export fn main(): int {
+    store iterator = iterate (Count(3i) as index) {
+      store message = "Performing a ";
+
+      return message;
+    };
+
+    store message = iterator.Reduce("", fn (item: [string], current: string) -> current.concat(item));
+
+    return message.log();
+  }
+}

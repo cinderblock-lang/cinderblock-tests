@@ -1,0 +1,7 @@
+{
+  "name": "loops",
+  "files": ["./src/main.cb"],
+  "libs": [],
+  "targets": ["linux"],
+  "bin": "bin"
+}
