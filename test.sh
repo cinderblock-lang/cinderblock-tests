@@ -6,6 +6,8 @@ run_code() {
   printf "Running test for $1\n"
   dir=$PWD;
   cd "$1" || exit;
+
+  rm -rf ./bin
   cinderblock compile
   stdout=$(eval "./bin/linux/$2")
 
