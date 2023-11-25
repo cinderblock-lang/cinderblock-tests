@@ -32,6 +32,7 @@ run_code 'simple-maths' 'simple_maths' 4 ""
 run_code 'externals' 'externals' 12 "Hello world"
 run_code 'functions' 'functions' 24 "This is from a function"
 run_code 'lambdas' 'lambdas' 20 "This is in a lambda"
+run_code 'loops' 'loops' 20 "Performing a Performing a Performing a "
 
 if [ $errors = true ]; then
   echo "You had some errors. Check the logs above.";
