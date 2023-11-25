@@ -1,0 +1,15 @@
+namespace App {
+  using std.io;
+
+  fn FunctionTest(): string {
+    store message = "This is from a function";
+
+    return message;
+  }
+
+  export fn main(): int {
+    store message = FunctionTest();
+
+    return message.log();
+  }
+}
