@@ -1,5 +1,12 @@
+namespace test.io {
+  export fn log(data: string): int {
+    store input = data.concat("\n");
+    return sys_print(input, input.length());
+  }
+}
+
 namespace App {
-  using std.io;
+  using test.io;
 
   fn FunctionTest(): string {
     store message = "This is from a function";

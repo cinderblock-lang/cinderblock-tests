@@ -1,9 +1,9 @@
 namespace App {
-  using std.io;
+  using test.io;
 
   export fn main(): int {
     store message = "Hello world";
 
-    return message.log();
+    return sys_print(message, message.length());
   }
 }

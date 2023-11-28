@@ -29,7 +29,7 @@ run_code() {
 
 run_code 'hello-world' 'hello_world' 0 ""
 run_code 'simple-maths' 'simple_maths' 4 ""
-run_code 'externals' 'externals' 12 "Hello world"
+run_code 'externals' 'externals' 11 "Hello world"
 run_code 'functions' 'functions' 24 "This is from a function"
 run_code 'lambdas' 'lambdas' 20 "This is in a lambda"
 run_code 'loops' 'loops' 55 "Performing a loop Performing a loop Performing a loop "

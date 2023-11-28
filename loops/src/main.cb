@@ -1,3 +1,10 @@
+namespace test.io {
+  export fn log(data: string): int {
+    store input = data.concat("\n");
+    return sys_print(input, input.length());
+  }
+}
+
 namespace test.iterable {
   export struct CountContext {
     done: bool;
@@ -28,7 +35,7 @@ namespace test.iterable {
 
 namespace App {
   using test.iterable;
-  using std.io;
+  using test.io;
 
   export fn main(): int {
     store iterator = iterate (Count(3i) as index) {
