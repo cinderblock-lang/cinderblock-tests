@@ -32,7 +32,7 @@ namespace App {
 
   export fn main(): int {
     store iterator = iterate (Count(3i) as index) {
-      store message = "Performing a ";
+      store message = "Performing a loop ";
 
       return message;
     };
