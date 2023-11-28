@@ -1,5 +1,33 @@
+namespace test.iterable {
+  export struct CountContext {
+    done: bool;
+    result?: int;
+  }
+
+  export fn Count(target: int): (index: int) -> CountContext {
+    return fn (index: int) -> make CountContext {
+      assign done = index >= target;
+      assign result = index;
+    };
+  }
+
+  export fn Reduce(target: [use any = T], start: use any = R, reducer: (item: T, current: R) -> R) {
+    store aggregator = fn (current: int, result: R): R -> {
+      store item = target(current);
+      return if (item.done) {
+        return result;
+      } else {
+        store next = reducer(item.result, result);
+        return aggregator(current + 1i, next);
+      };
+    };
+
+    return aggregator(0i, start);
+  }
+}
+
 namespace App {
-  using std.iterable;
+  using test.iterable;
   using std.io;
 
   export fn main(): int {
@@ -9,7 +37,7 @@ namespace App {
       return message;
     };
 
-    store message = iterator.Reduce("", fn (item: [string], current: string) -> current.concat(item));
+    store message = iterator.Reduce("", fn (item: string, current: string) -> current.concat(item));
 
     return message.log();
   }
