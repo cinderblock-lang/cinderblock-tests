@@ -1,0 +1,20 @@
+namespace test.io {
+  export fn log(data: string): int {
+    store input = data.concat("\n");
+    return sys_print(input, input.length());
+  }
+}
+
+namespace App {
+  using test.io;
+
+  fn Test(hello: string, world: string) {
+    return hello.concat(" ").concat(world);
+  }
+
+  export fn main(): int {
+    store world = Test("world");
+    store hello = world("Hello");
+    return hello.log();
+  }
+}
