@@ -8,7 +8,7 @@ run_code() {
   cd "$1" || exit;
 
   rm -rf ./bin
-  cinderblock compile
+  cinderblock compile -c
   stdout=$(eval "./bin/linux/$2")
 
   resp=$?;
