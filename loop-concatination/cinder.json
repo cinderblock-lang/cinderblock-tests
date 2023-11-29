@@ -1,0 +1,7 @@
+{
+  "name": "loop_concatination",
+  "files": ["./src/main.cb"],
+  "libs": [],
+  "targets": ["linux"],
+  "bin": "bin"
+}
