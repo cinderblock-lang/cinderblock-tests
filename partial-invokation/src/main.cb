@@ -14,7 +14,6 @@ namespace App {
 
   export unsafe fn main(): int {
     store world = Test("world");
-    store hello = world("Hello");
-    return hello.log();
+    return world("Hello").log();
   }
 }
