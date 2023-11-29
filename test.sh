@@ -1,5 +1,5 @@
 #! /bin/bash
-
+cinderblock="${CINDERBLOCK:-cinderblock}"
 errors=false;
 
 run_code() {
@@ -7,11 +7,12 @@ run_code() {
   dir=$PWD;
   cd "$1" || exit;
 
+  rm -rf ./.cinder_cache || true
   rm -rf ./bin || true
   if [ "$5" == "test" ]; then
-    cinderblock test
+    eval "$cinderblock test"
   else
-    cinderblock compile -c
+    eval "$cinderblock compile -c"
   fi
   stdout=$(eval "./bin/linux/$2")
 
