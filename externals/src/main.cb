@@ -1,7 +1,7 @@
 namespace App {
   using test.io;
 
-  export fn main(): int {
+  export unsafe fn main(): int {
     store message = "Hello world";
 
     return sys_print(message, message.length());

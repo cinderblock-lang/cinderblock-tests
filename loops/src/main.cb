@@ -1,5 +1,5 @@
 namespace test.io {
-  export fn log(data: string): int {
+  export unsafe fn log(data: string): int {
     store input = data.concat("\n");
     return sys_print(input, input.length());
   }
@@ -37,7 +37,7 @@ namespace App {
   using test.iterable;
   using test.io;
 
-  export fn main(): int {
+  export unsafe fn main(): int {
     store iterator = iterate (Count(3i) as index) {
       store message = "Performing a loop ";
 
