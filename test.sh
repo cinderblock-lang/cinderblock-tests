@@ -7,8 +7,12 @@ run_code() {
   dir=$PWD;
   cd "$1" || exit;
 
-  rm -rf ./bin
-  cinderblock compile -c
+  rm -rf ./bin || true
+  if [ "$5" == "test" ]; then
+    cinderblock test
+  else
+    cinderblock compile -c
+  fi
   stdout=$(eval "./bin/linux/$2")
 
   resp=$?;
@@ -35,6 +39,15 @@ run_code 'lambdas' 'lambdas' 20 "This is in a lambda"
 run_code 'loops' 'loops' 55 "Performing a loop Performing a loop Performing a loop "
 run_code 'loop-concatination' 'loop_concatination' 73 "Performing a loop Performing a loop Performing a loop Performing a loop "
 run_code 'partial-invokation' 'partial_invokation' 12 "Hello world"
+run_code 'tests' 'tests_tests' 1 "Running test: This test passes
+Test Passed
+
+
+Running test: This test fails
+Test Failed
+
+
+You had some failues." test
 
 if [ $errors = true ]; then
   echo "You had some errors. Check the logs above.";

@@ -1,0 +1,16 @@
+namespace App {
+  using test.iterable;
+  using test.io;
+
+  export unsafe fn main(): int {
+    return 0i;
+  }
+
+  test "This test passes" {
+    return true;
+  }
+
+  test "This test fails" {
+    return false;
+  }
+}
