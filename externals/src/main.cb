@@ -4,6 +4,8 @@ namespace App {
   export unsafe fn main(): int {
     store message = "Hello world";
 
-    return sys_print(message, message.length());
+    side sys_print(message, message.length());
+
+    return 0i;
   }
 }
