@@ -22,12 +22,12 @@ namespace App {
   }
 
   fn TestItem(item: Test): string {
-    return match (item) {
-      (one as item) {
-        return item.name;
+    return match (item as matched) {
+      one: {
+        return matched.name;
       }
-      (two as item) {
-        return item.fullname;
+      two: {
+        return matched.fullname;
       }
     };
   }
