@@ -33,8 +33,12 @@ namespace App {
   }
 
   export unsafe fn main(): int {
-    store one_test = Test.one(make ItemOne { assign name = "Test Name"; });
-    store two_test = Test.two(make ItemTwo { assign fullname = "Test Full Name"; });
+    store one_test = make Test.one {
+      return make ItemOne { assign name = "Test Name"; };
+    };
+    store two_test = make Test.two {
+      return make ItemTwo { assign fullname = "Test Full Name"; };
+    }:
 
     one_test.TestItem().log();
     two_test.TestItem().log();
