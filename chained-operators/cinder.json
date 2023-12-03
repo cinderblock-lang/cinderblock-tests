@@ -1,0 +1,8 @@
+{
+  "name": "chained_operators",
+  "files": ["./src/main.cb"],
+  "libs": [],
+  "targets": ["linux"],
+  "bin": "bin",
+  "no_std": true
+}

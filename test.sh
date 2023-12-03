@@ -33,6 +33,8 @@ run_code() {
 }
 
 run_code 'hello-world' 'hello_world' 0 ""
+run_code 'chained-operators' 'chained_operators' 0 ""
+run_code 'if-expressions' 'if_expressions' 5 ""
 run_code 'simple-maths' 'simple_maths' 4 ""
 run_code 'externals' 'externals' 0 "Hello world"
 run_code 'functions' 'functions' 24 "This is from a function"
@@ -49,6 +51,11 @@ Test Failed
 
 
 You had some failues." test
+run_code 'enums' 'enums' 0 "Test Name
+Test Full Name"
+
+
+run_code 'specific-examples/string-equals' 'string_equals' 0 ""
 
 if [ $errors = true ]; then
   echo "You had some errors. Check the logs above.";

@@ -1,0 +1,8 @@
+namespace App {
+  export fn main(): int {
+    store subject = "test";
+    store index = 1i;
+    store current = false;
+    return index < subject.length() - 1i && current == true;
+  }
+}

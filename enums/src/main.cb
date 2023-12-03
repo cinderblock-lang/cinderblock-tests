@@ -1,0 +1,44 @@
+namespace test.io {
+  export unsafe fn log(data: string): int {
+    store input = data.concat("\n");
+    return sys_print(input, input.length());
+  }
+}
+
+namespace App {
+  using test.io;
+
+  struct ItemOne {
+    name: string;
+  }
+
+  struct ItemTwo {
+    fullname: string;
+  }
+
+  enum Test {
+    one: ItemOne;
+    two: ItemTwo;
+  }
+
+  fn TestItem(item: Test): string {
+    return match (item) {
+      (one as item) {
+        return item.name;
+      }
+      (two as item) {
+        return item.fullname;
+      }
+    };
+  }
+
+  export unsafe fn main(): int {
+    store one_test = Test.one(make ItemOne { assign name = "Test Name"; });
+    store two_test = Test.two(make ItemTwo { assign fullname = "Test Full Name"; });
+
+    one_test.TestItem().log();
+    two_test.TestItem().log();
+
+    return 0i;
+  }
+}

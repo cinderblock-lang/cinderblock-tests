@@ -1,0 +1,30 @@
+namespace test.string {
+  fn equals_charred(subject: string, expected: string, index: int): bool {
+    store current = subject.get_char(index) == expected.get_char(index);
+
+    return if (index < subject.length() - 1i && current == true) {
+      return equals_charred(subject, expected, index + 1i);
+    } else {
+      return current;
+    };
+  }
+
+  export fn equals(subject: string, expected: string): bool {
+    return if (subject.length() != expected.length() || subject.length() == 0i) {
+      return false;
+    } else {
+      return equals_charred(subject, expected, 0i);
+    };
+  }
+}
+
+namespace App {
+  using test.string;
+
+  export unsafe fn main(): int {
+    store first = "This is a test";
+    store second = "This 1s b test";
+
+    return first.equals(second);
+  }
+}
