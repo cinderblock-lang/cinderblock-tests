@@ -25,7 +25,7 @@ namespace App {
     return match (item as matched) {
       one: {
         return matched.name;
-      }
+      },
       two: {
         return matched.fullname;
       }
@@ -33,15 +33,15 @@ namespace App {
   }
 
   export unsafe fn main(): int {
-    store one_test = make Test.one {
+    store one_test = pick Test.one {
       return make ItemOne { assign name = "Test Name"; };
     };
-    store two_test = make Test.two {
+    store two_test = pick Test.two {
       return make ItemTwo { assign fullname = "Test Full Name"; };
-    }:
+    };
 
-    one_test.TestItem().log();
-    two_test.TestItem().log();
+    side one_test.TestItem().log();
+    side two_test.TestItem().log();
 
     return 0i;
   }
