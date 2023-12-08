@@ -1,0 +1,11 @@
+namespace App {
+  using test.io;
+
+  export unsafe fn main(): int {
+    store message = "こんにちは世界";
+
+    side sys_print(message, message.length());
+
+    return 0i;
+  }
+}
