@@ -35,6 +35,7 @@ run_code() {
 run_code 'hello-world' 'hello_world' 0 ""
 run_code 'chained-operators' 'chained_operators' 0 ""
 run_code 'if-expressions' 'if_expressions' 5 ""
+run_code 'else-if' 'else_if' 0 ""
 run_code 'simple-maths' 'simple_maths' 4 ""
 run_code 'externals' 'externals' 0 "Hello world"
 run_code 'utf8-strings' 'utf_8_strings' 0 "こんにちは世界"
