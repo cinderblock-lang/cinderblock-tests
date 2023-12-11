@@ -1,4 +1,8 @@
 namespace test.io {
+  unsafe fn sys_print(data: string, length: int): int {
+    return system(1i, 1i, data, length);
+  }
+
   export unsafe fn log(data: string): int {
     store input = data.concat("\n");
     return sys_print(input, input.length());
