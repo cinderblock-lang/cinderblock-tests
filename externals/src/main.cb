@@ -1,10 +1,14 @@
 namespace App {
   using test.io;
 
+  system "sys/syscall.h" {
+    fn syscall(rax: int, fd: int, buf: string, count: int): int;
+  }
+
   export unsafe fn main(): int {
     store message = "Hello world";
 
-    side system(1i, 1i, message, message.length());
+    side syscall(1i, 1i, message, message.length());
 
     return 0i;
   }

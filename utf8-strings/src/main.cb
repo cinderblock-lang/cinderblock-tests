@@ -1,8 +1,12 @@
 namespace App {
   using test.io;
 
+  system "sys/syscall.h" {
+    fn syscall(rax: int, fd: int, buf: string, count: int): int;
+  }
+
   unsafe fn sys_print(data: string, length: int): int {
-    return system(1i, 1i, data, length);
+    return syscall(1i, 1i, data, length);
   }
 
   export unsafe fn main(): int {
