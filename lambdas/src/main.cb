@@ -1,10 +1,6 @@
 namespace test.io {
-  system "sys/syscall.h" {
-    fn syscall(rax: int, fd: int, buf: string, count: int): int;
-  }
-
-  unsafe fn sys_print(data: string, length: int): int {
-    return syscall(1i, 1i, data, length);
+  unsafe fn sys_print(data: string, length: int): null {
+    return system(1i, 1i, data, length);
   }
 
   export unsafe fn log(data: string): int {
