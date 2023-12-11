@@ -39,11 +39,11 @@ run_code 'else-if' 'else_if' 0 ""
 run_code 'simple-maths' 'simple_maths' 4 ""
 run_code 'externals' 'externals' 0 "Hello world"
 run_code 'utf8-strings' 'utf_8_strings' 0 "私のお読さんは美しです"
-run_code 'functions' 'functions' 0 "This is from a function"
-run_code 'lambdas' 'lambdas' 0 "This is in a lambda"
-run_code 'loops' 'loops' 0 "Performing a loop Performing a loop Performing a loop "
-run_code 'loop-concatination' 'loop_concatination' 0 "Performing a loop Performing a loop Performing a loop Performing a loop "
-run_code 'partial-invokation' 'partial_invokation' 0 "Hello world"
+run_code 'functions' 'functions' 24 "This is from a function"
+run_code 'lambdas' 'lambdas' 20 "This is in a lambda"
+run_code 'loops' 'loops' 55 "Performing a loop Performing a loop Performing a loop "
+run_code 'loop-concatination' 'loop_concatination' 73 "Performing a loop Performing a loop Performing a loop Performing a loop "
+run_code 'partial-invokation' 'partial_invokation' 12 "Hello world"
 run_code 'tests' 'tests_tests' 1 "Running test: This test passes
 Test Passed
 
