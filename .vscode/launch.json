@@ -21,28 +21,47 @@
       "runtimeExecutable": "cinderblock",
       "runtimeArgs": ["test"],
       "cwd": "${workspaceFolder}/${input:project}"
+    },
+    {
+      "name": "Debug App C",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/${input:project}/bin/linux/app",
+      "cwd": "${workspaceFolder}/${input:project}/bin/linux",
+      "preLaunchTask": "Compile App"
+    },
+    {
+      "name": "Debug Test C",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/${input:project}/bin/linux/app_tests",
+      "cwd": "${workspaceFolder}/${input:project}/bin/linux"
     }
   ],
   "inputs": [
     {
       "id": "project",
-      "type": "pickString",
-      "description": "The project to open",
-      "options": [
-        "chained-operators",
-        "enums",
-        "externals",
-        "functions",
-        "hello-world",
-        "if-expressions",
-        "lambdas",
-        "loop-concatination",
-        "loops",
-        "partial-invokation",
-        "simple-maths",
-        "tests",
-        "specific-examples/string-equals"
-      ]
+      "type": "command",
+      "command": "extension.commandvariable.pickStringRemember",
+      "args": {
+        "key": "project",
+        "description": "The project to open",
+        "options": [
+          "chained-operators",
+          "enums",
+          "externals",
+          "functions",
+          "hello-world",
+          "if-expressions",
+          "lambdas",
+          "loop-concatination",
+          "loops",
+          "partial-invokation",
+          "simple-maths",
+          "tests",
+          "specific-examples/string-equals"
+        ]
+      }
     }
   ]
 }

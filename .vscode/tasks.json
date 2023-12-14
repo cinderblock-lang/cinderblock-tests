@@ -11,6 +11,30 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "type": "shell",
+      "label": "Compile App",
+      "command": "cinderblock compile -d -c",
+      "options": {
+        "cwd": "${workspaceFolder}/${input:project}"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "Compile Test",
+      "command": "cinderblock test",
+      "options": {
+        "cwd": "${workspaceFolder}/${input:project}"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "project",
+      "type": "command",
+      "command": "extension.commandvariable.rememberPick",
+      "args": { "key": "project" }
     }
   ]
 }

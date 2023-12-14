@@ -1,5 +1,5 @@
 {
-  "name": "else_if",
+  "name": "app",
   "files": ["./src/main.cb"],
   "libs": [],
   "targets": ["linux"],

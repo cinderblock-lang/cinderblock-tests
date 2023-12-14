@@ -1,5 +1,5 @@
 {
-  "name": "utf_8_strings",
+  "name": "app",
   "files": ["./src/main.cb"],
   "libs": [],
   "targets": ["linux"],

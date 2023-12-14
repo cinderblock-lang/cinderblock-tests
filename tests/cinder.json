@@ -1,5 +1,5 @@
 {
-  "name": "tests",
+  "name": "app",
   "files": ["./src/main.cb"],
   "libs": [],
   "targets": ["linux"],

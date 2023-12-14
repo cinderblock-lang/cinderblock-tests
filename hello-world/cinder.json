@@ -1,5 +1,5 @@
 {
-  "name": "hello_world",
+  "name": "app",
   "files": ["./src/main.cb"],
   "libs": [],
   "targets": ["linux"],
