@@ -4,7 +4,7 @@ namespace test.io {
   }
 
   export unsafe fn log(data: string): int {
-    store input = data.concat("\n");
+    input -> data.concat("\n");
     return sys_print(input, input.length());
   }
 }
@@ -13,13 +13,13 @@ namespace App {
   using test.io;
 
   fn FunctionTest(): string {
-    store message = "This is from a function";
+    message -> "This is from a function";
 
     return message;
   }
 
   export unsafe fn main(): int {
-    store message = FunctionTest();
+    message -> FunctionTest();
 
     return message.log();
   }

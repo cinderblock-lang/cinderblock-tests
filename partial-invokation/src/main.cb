@@ -4,7 +4,7 @@ namespace test.io {
   }
 
   export unsafe fn log(data: string): int {
-    store input = data.concat("\n");
+    input -> data.concat("\n");
     return sys_print(input, input.length());
   }
 }
@@ -17,7 +17,7 @@ namespace App {
   }
 
   export unsafe fn main(): int {
-    store world = Test("world");
+    world -> Test("world");
     return world("Hello").log();
   }
 }

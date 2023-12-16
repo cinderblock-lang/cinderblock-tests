@@ -2,7 +2,7 @@ namespace App {
   using test.io;
 
   export unsafe fn main(): int {
-    store message = "Hello world";
+    message -> "Hello world";
 
     side system(1i, 1i, message, message.length());
 

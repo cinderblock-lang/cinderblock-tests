@@ -1,6 +1,6 @@
 namespace test.string {
   fn equals_charred(subject: string, expected: string, index: int): bool {
-    store current = subject.get_char(index) == expected.get_char(index);
+    current -> subject.get_char(index) == expected.get_char(index);
 
     return if (index < subject.length() - 1i && current == true) {
       return equals_charred(subject, expected, index + 1i);
@@ -22,8 +22,8 @@ namespace App {
   using test.string;
 
   export unsafe fn main(): int {
-    store first = "This is a test";
-    store second = "This 1s b test";
+    first -> "This is a test";
+    second -> "This 1s b test";
 
     return first.equals(second);
   }

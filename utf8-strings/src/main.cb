@@ -6,7 +6,7 @@ namespace App {
   }
 
   export unsafe fn main(): int {
-    store message = "私のお読さんは美しです";
+    message -> "私のお読さんは美しです";
 
     side sys_print(message, message.length());
 

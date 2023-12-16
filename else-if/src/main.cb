@@ -1,6 +1,6 @@
 namespace test.io {
   export unsafe fn log(data: string): int {
-    store input = data.concat("\n");
+    input -> data.concat("\n");
     return sys_print(input, input.length());
   }
 }
@@ -9,7 +9,7 @@ namespace App {
   using test.io;
 
   export unsafe fn main(): int {
-    store current = 3i;
+    current -> 3i;
 
     return if (true && current > 4i) {
       return current;

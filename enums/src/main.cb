@@ -4,7 +4,7 @@ namespace test.io {
   }
 
   export unsafe fn log(data: string): int {
-    store input = data.concat("\n");
+    input -> data.concat("\n");
     return sys_print(input, input.length());
   }
 }
@@ -37,10 +37,10 @@ namespace App {
   }
 
   export unsafe fn main(): int {
-    store one_test = pick Test.one {
+    one_test -> pick Test.one {
       return make ItemOne { assign name = "Test Name"; };
     };
-    store two_test = pick Test.two {
+    two_test -> pick Test.two {
       return make ItemTwo { assign fullname = "Test Full Name"; };
     };
 

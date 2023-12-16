@@ -4,7 +4,7 @@ namespace test.io {
   }
 
   export unsafe fn log(data: string): int {
-    store input = data.concat("\n");
+    input -> data.concat("\n");
     return sys_print(input, input.length());
   }
 }
@@ -25,12 +25,12 @@ namespace test.iterable {
   }
 
   export fn Reduce(target: [use any = T], start: use any = R, reducer: (item: T, current: R) -> R) {
-    store aggregator = fn (current: int, result: R): R -> {
-      store item = target(current);
+    aggregator -> fn (current: int, result: R): R -> {
+      item -> target(current);
       return if (item.done) {
         return result;
       } else {
-        store next = reducer(item.result, result);
+        next -> reducer(item.result, result);
         return aggregator(item.next, next);
       };
     };
@@ -44,13 +44,13 @@ namespace App {
   using test.io;
 
   export unsafe fn main(): int {
-    store iterator = iterate (Count(3i) as index) {
-      store message = "Performing a loop ";
+    iterator -> iterate (Count(3i) as index) {
+      message -> "Performing a loop ";
 
       return message;
     };
 
-    store message = iterator.Reduce("", fn (item: string, current: string) -> current.concat(item));
+    message -> iterator.Reduce("", fn (item: string, current: string) -> current.concat(item));
 
     return message.log();
   }

@@ -4,7 +4,7 @@ namespace test.io {
   }
 
   export unsafe fn log(data: string): int {
-    store input = data.concat("\n");
+    input -> data.concat("\n");
     return sys_print(input, input.length());
   }
 }
@@ -13,15 +13,15 @@ namespace App {
   using test.io;
 
   fn LambdaTest(): () -> string {
-    store message = "This is in a lambda";
+    message -> "This is in a lambda";
 
     return fn () -> message;
   }
 
   export unsafe fn main(): int {
-    store get_message = LambdaTest();
+    get_message -> LambdaTest();
 
-    store message = get_message();
+    message -> get_message();
 
     return message.log();
   }
