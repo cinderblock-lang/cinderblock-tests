@@ -1,0 +1,36 @@
+namespace test.io {
+  unsafe fn sys_print(data: string, length: int): null {
+    return system(1i, 1i, data, length);
+  }
+
+  export unsafe fn log(data: string): int {
+    input -> data.concat("\n");
+    return sys_print(input, input.length());
+  }
+
+  export struct Error {
+    message: string;
+  }
+
+  export unsafe fn log(data: Error): int {
+    input -> data.message.concat("\n");
+    return sys_print(input, input.length());
+  }
+}
+
+namespace App {
+  using test.io;
+
+  export unsafe fn main(): int {
+    message -> make Error {
+      assign message = "This is from a struct";
+    };
+
+    string_message -> "This is a string";
+
+    side message.log();
+    side string_message.log();
+
+    return 0i;
+  }
+}
