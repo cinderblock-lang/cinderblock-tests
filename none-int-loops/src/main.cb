@@ -1,0 +1,81 @@
+namespace test.io {
+  unsafe fn sys_print(data: string, length: int): null {
+    return system(1i, 1i, data, length);
+  }
+
+  export unsafe fn log(data: string): int {
+    input -> data.concat("\n");
+    return sys_print(input, input.length());
+  }
+}
+
+namespace test.iterable {
+  export struct CountNext {
+    target: int;
+  }
+
+  export struct CountContext {
+    done: bool;
+    result?: int;
+    next?: CountNext;
+  }
+
+  export fn Count(target: int): (index: use any = T) -> CountContext {
+    return fn (current?: CountContext) -> if (current is CountContext) {
+      return make CountContext {
+        index -> current.target;
+        assign done = index >= target;
+        assign result = index;
+        assign next = make CountNext {
+          assign target = index + 1i;
+        };
+      };
+    } else {
+      return make CountContext {
+        index -> 0i;
+        assign done = index >= target;
+        assign result = index;
+        assign next = make CountNext {
+          assign target = 1i;
+        };
+      };
+    };
+  }
+
+  export fn Reduce(target: [use any = T], start: use any = R, reducer: (item: T, current: R) -> R) {
+    aggregator -> fn (current, result: R): R -> {
+      item -> target(current);
+      return if (item.done) {
+        return result;
+      } else {
+        next -> reducer(item.result, result);
+        return aggregator(item.next, next);
+      };
+    };
+
+    item -> target();
+    return if (item.done) {
+      return start;
+    } else {
+      next -> reducer(item.result, start);
+      return aggregator(item.next, next);
+    };
+  }
+}
+
+namespace App {
+  using test.iterable;
+  using test.io;
+
+  export unsafe fn main(): int {
+    iterator -> iterate (Count(3i) as index) {
+      message -> "Performing a loop ";
+
+      return message;
+    };
+
+    message -> iterator.Reduce("", fn (item: string, current: string) -> current.concat(item));
+
+    return message.log();
+  }
+}
