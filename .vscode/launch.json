@@ -59,7 +59,8 @@
           "partial-invokation",
           "simple-maths",
           "tests",
-          "specific-examples/string-equals"
+          "specific-examples/string-equals",
+          "none-int-loops"
         ]
       }
     }

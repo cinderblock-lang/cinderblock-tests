@@ -17,7 +17,7 @@ namespace test.iterable {
   export struct CountContext {
     done: bool;
     result?: int;
-    next?: CountNext;
+    next: CountNext;
   }
 
   export fn Count(target: int): (index: use any = T) -> CountContext {
