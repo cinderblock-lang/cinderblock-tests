@@ -1,0 +1,45 @@
+namespace std.iterable {
+  export struct CountContext {
+    done: bool;
+    result?: int;
+    next?: int;
+  }
+
+  export fn count(target: int): (index: int) -> CountContext {
+    return fn (index?: int) -> make CountContext {
+      assign done = index >= target;
+      assign result = index;
+      assign next = index + 1i;
+    };
+  }
+  
+  export fn reduce(target: [use any = T], start: use any = R, reducer: (item: T, current: R) -> R) {
+    aggregator -> fn (current, result: R): R -> {
+      item -> target(current);
+      return if (item.done) {
+        return result;
+      } else {
+        next -> reducer(item.result, result);
+        return aggregator(item.next, next);
+      };
+    };
+
+    item -> target();
+    return if (item.done) {
+      return start;
+    } else {
+      next -> reducer(item.result, start);
+      return aggregator(item.next, next);
+    };
+  }
+
+  test "std.iterable.reduce Aggregates simply" {
+    basic -> iterate (count(3i) as index) {
+      return index;
+    };
+
+    result -> basic.reduce(0i, fn (index: int, current: int) -> current + index);
+
+    return result == 3i;
+  }
+}
