@@ -47,7 +47,7 @@ run_code 'function-overloading' 0 "This is from a struct
 This is a string"
 run_code 'lambdas' 20 "This is in a lambda"
 run_code 'loops' 55 "Performing a loop Performing a loop Performing a loop "
-# run_code 'none-int-loops' 55 "Performing a loop Performing a loop Performing a loop "
+run_code 'none-int-loops' 55 "Performing a loop Performing a loop Performing a loop "
 run_code 'loop-concatination' 73 "Performing a loop Performing a loop Performing a loop Performing a loop "
 run_code 'partial-invokation' 12 "Hello world"
 run_code 'tests' 1 "Running test: This test passes

@@ -21,7 +21,7 @@ namespace test.iterable {
   }
 
   export fn Count(target: int): (index: use any = T) -> CountContext {
-    return fn (current?: CountContext) -> if (current is CountContext) {
+    return fn (current?: CountNext) -> if (current != default(CountNext)) {
       return make CountContext {
         index -> current.target;
         assign done = index >= target;
