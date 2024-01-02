@@ -64,15 +64,11 @@ Test Full Name"
 
 
 run_code 'specific-examples/string-equals' 0 ""
-run_code 'specific-examples/reduce' 0 "Running test: This test passes
+run_code 'specific-examples/reduce' 0 "Running test: std.iterable.reduce Aggregates simply
 Test Passed
 
 
-Running test: This test fails
-Test Failed
-
-
-You had some failues." test
+All tests passed!" test
 
 if [ $errors = true ]; then
   echo "You had some errors. Check the logs above.";
