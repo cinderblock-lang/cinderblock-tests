@@ -1,14 +1,3 @@
-namespace test.io {
-  unsafe fn sys_print(data: string, length: int): null {
-    return system(1i, 1i, data, length);
-  }
-
-  export unsafe fn log(data: string): int {
-    input -> data.concat("\n");
-    return sys_print(input, input.length());
-  }
-}
-
 namespace test.iterable {
   export struct CountContext {
     done: bool;
@@ -41,7 +30,7 @@ namespace test.iterable {
 
 namespace App {
   using test.iterable;
-  using test.io;
+  using Console;
 
   export unsafe fn main(): int {
     iterator -> iterate (Count(3i) as index) {
@@ -52,6 +41,6 @@ namespace App {
 
     message -> iterator.Reduce("", fn (item: string, current: string) -> current.concat(item));
 
-    return message.log();
+    return message.Log();
   }
 }

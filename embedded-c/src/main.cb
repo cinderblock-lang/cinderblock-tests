@@ -2,10 +2,7 @@ namespace App {
   using Console;
 
   export unsafe fn main(): int {
-    message -> "私のお読さんは美しです";
-
-    side Log(message);
-
+    side Log("Hello world");
     return 0i;
   }
 }

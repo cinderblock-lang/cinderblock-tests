@@ -1,28 +1,13 @@
-namespace test.io {
-  unsafe fn sys_print(data: string, length: int): null {
-    return system(1i, 1i, data, length);
-  }
-
-  export unsafe fn log(data: string): int {
-    input -> data.concat("\n");
-    return sys_print(input, input.length());
-  }
-}
-
 namespace App {
-  using test.io;
-
   fn LambdaTest(): () -> string {
-    message -> "This is in a lambda";
+    number -> 30i;
 
-    return fn () -> message;
+    return fn () -> number;
   }
 
   export unsafe fn main(): int {
-    get_message -> LambdaTest();
+    get_number -> LambdaTest();
 
-    message -> get_message();
-
-    return message.log();
+    return get_number();
   }
 }

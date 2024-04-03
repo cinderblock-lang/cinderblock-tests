@@ -1,6 +1,7 @@
 #! /bin/bash
 cinderblock="${CINDERBLOCK:-cinderblock}"
 errors=false;
+operating_system="${OS:-linux}"
 
 run_code() {
   printf "Running test for $1\n"
@@ -12,10 +13,10 @@ run_code() {
   stdout=""
   if [ "$4" == "test" ]; then
     eval "$cinderblock test"
-    stdout=$(eval "./bin/linux/app_tests")
+    stdout=$(eval "./bin/$operating_system/app_tests")
   else
     eval "$cinderblock compile -c -d"
-    stdout=$(eval "./bin/linux/app")
+    stdout=$(eval "./bin/$operating_system/app")
   fi
   
 
@@ -40,16 +41,15 @@ run_code 'chained-operators' 0 ""
 run_code 'if-expressions' 5 ""
 run_code 'else-if' 0 ""
 run_code 'simple-maths' 4 ""
-run_code 'externals' 0 "Hello world"
+run_code 'embedded-c' 0 "Hello world"
 run_code 'utf8-strings' 0 "私のお読さんは美しです"
-run_code 'functions' 24 "This is from a function"
-run_code 'function-overloading' 0 "This is from a struct
-This is a string"
-run_code 'lambdas' 20 "This is in a lambda"
-run_code 'loops' 55 "Performing a loop Performing a loop Performing a loop "
-run_code 'none-int-loops' 55 "Performing a loop Performing a loop Performing a loop "
-run_code 'loop-concatination' 73 "Performing a loop Performing a loop Performing a loop Performing a loop "
-run_code 'partial-invokation' 12 "Hello world"
+run_code 'functions' 24 ""
+run_code 'function-overloading' 17 ""
+run_code 'lambdas' 30 ""
+run_code 'loops' 0 "Performing a loop Performing a loop Performing a loop "
+run_code 'none-int-loops' 0 "Performing a loop Performing a loop Performing a loop "
+run_code 'loop-concatination' 0 "Performing a loop Performing a loop Performing a loop Performing a loop "
+run_code 'partial-invokation' 0 "Hello world"
 run_code 'tests' 1 "Running test: This test passes
 Test Passed
 
@@ -59,10 +59,7 @@ Test Failed
 
 
 You had some failues." test
-run_code 'enums' 0 "Test Name
-Test Full Name"
-
-
+run_code 'enums' 0 "Test NameTest Full Name"
 run_code 'specific-examples/string-equals' 0 ""
 run_code 'specific-examples/reduce' 0 "Running test: std.iterable.reduce Aggregates simply
 Test Passed

@@ -1,19 +1,6 @@
-namespace test.io {
-  unsafe fn sys_print(data: string, length: int): null {
-    return system(1i, 1i, data, length);
-  }
-
-  export unsafe fn log(data: string): int {
-    input -> data.concat("\n");
-    return sys_print(input, input.length());
-  }
-}
-
 namespace App {
-  using test.io;
-
   fn FunctionTest(): string {
-    message -> "This is from a function";
+    message -> 24i;
 
     return message;
   }
@@ -21,6 +8,6 @@ namespace App {
   export unsafe fn main(): int {
     message -> FunctionTest();
 
-    return message.log();
+    return message;
   }
 }

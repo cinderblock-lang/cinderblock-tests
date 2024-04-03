@@ -3,18 +3,16 @@ namespace test.io {
     return system(1i, 1i, data, length);
   }
 
-  export unsafe fn log(data: string): int {
-    input -> data.concat("\n");
-    return sys_print(input, input.length());
+  export unsafe fn fetch(data: int): int {
+    return data + 5i;
   }
 
   export struct Error {
-    message: string;
+    number: string;
   }
 
-  export unsafe fn log(data: Error): int {
-    input -> data.message.concat("\n");
-    return sys_print(input, input.length());
+  export unsafe fn fetch(data: Error): int {
+    return data.number + 10i;
   }
 }
 
@@ -22,15 +20,12 @@ namespace App {
   using test.io;
 
   export unsafe fn main(): int {
-    message -> make Error {
-      assign message = "This is from a struct";
+    error -> make Error {
+      assign number = 1i;
     };
 
-    string_message -> "This is a string";
+    plain -> 1i;
 
-    side message.log();
-    side string_message.log();
-
-    return 0i;
+    return error.fetch() + plain.fetch();
   }
 }

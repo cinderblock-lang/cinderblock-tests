@@ -1,16 +1,5 @@
-namespace test.io {
-  unsafe fn sys_print(data: string, length: int): null {
-    return system(1i, 1i, data, length);
-  }
-
-  export unsafe fn log(data: string): int {
-    input -> data.concat("\n");
-    return sys_print(input, input.length());
-  }
-}
-
 namespace App {
-  using test.io;
+  using Console;
 
   struct ItemOne {
     name: string;
@@ -44,8 +33,8 @@ namespace App {
       return make ItemTwo { assign fullname = "Test Full Name"; };
     };
 
-    side one_test.TestItem().log();
-    side two_test.TestItem().log();
+    side one_test.TestItem().Log();
+    side two_test.TestItem().Log();
 
     return 0i;
   }
