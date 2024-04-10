@@ -47,7 +47,6 @@ run_code 'functions' 24 ""
 run_code 'function-overloading' 17 ""
 run_code 'lambdas' 30 ""
 run_code 'loops' 0 "Performing a loop Performing a loop Performing a loop "
-run_code 'none-int-loops' 0 "Performing a loop Performing a loop Performing a loop "
 run_code 'loop-concatination' 0 "Performing a loop Performing a loop Performing a loop Performing a loop "
 run_code 'partial-invokation' 0 "Hello world"
 run_code 'tests' 1 "Running test: This test passes

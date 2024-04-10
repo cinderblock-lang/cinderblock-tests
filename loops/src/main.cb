@@ -1,45 +1,10 @@
-namespace test.iterable {
-  export struct CountContext {
-    done: bool;
-    result?: int;
-    next?: int;
-  }
-
-  export fn Count(target: int): (index: int) -> CountContext {
-    return fn (index: int) -> make CountContext {
-      assign done = index >= target;
-      assign result = index;
-      assign next = index + 1i;
-    };
-  }
-
-  export fn Reduce(target: [use any = T], start: use any = R, reducer: (item: T, current: R) -> R) {
-    aggregator -> fn (current: int, result: R): R -> {
-      item -> target(current);
-      return if (item.done) {
-        return result;
-      } else {
-        next -> reducer(item.result, result);
-        return aggregator(item.next, next);
-      };
-    };
-
-    return aggregator(0i, start);
-  }
-}
-
 namespace App {
-  using test.iterable;
   using Console;
 
   export unsafe fn main(): int {
-    iterator -> iterate (Count(3i) as index) {
-      message -> "Performing a loop ";
+    iterator -> iterate [increment(3i)] (index) -> "Performing a loop ";
 
-      return message;
-    };
-
-    message -> iterator.Reduce("", fn (item: string, current: string) -> current.concat(item));
+    message -> reduce[iterator, ""] (item, current) -> current.concat(item);
 
     return message.Log();
   }
