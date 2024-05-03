@@ -1,13 +1,4 @@
-namespace test.io {
-  export unsafe fn log(data: string): int {
-    input -> data.concat("\n");
-    return sys_print(input, input.length());
-  }
-}
-
 namespace App {
-  using test.io;
-
   export unsafe fn main(): int {
     current -> 3i;
 

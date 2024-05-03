@@ -16,22 +16,14 @@ namespace App {
 
   fn TestItem(item: Test): string {
     return match (item as matched) {
-      one: {
-        return matched.name;
-      },
-      two: {
-        return matched.fullname;
-      }
+      one: matched.name;
+      two: matched.fullname;
     };
   }
 
   export unsafe fn main(): int {
-    one_test -> pick Test.one {
-      return make ItemOne { assign name = "Test Name"; };
-    };
-    two_test -> pick Test.two {
-      return make ItemTwo { assign fullname = "Test Full Name"; };
-    };
+    one_test -> pick Test.one make ItemOne { assign name = "Test Name"; };
+    two_test -> pick Test.two make ItemTwo { assign fullname = "Test Full Name"; };
 
     side one_test.TestItem().Log();
     side two_test.TestItem().Log();

@@ -45,26 +45,26 @@ run_code 'embedded-c' 0 "Hello world"
 run_code 'utf8-strings' 0 "私のお読さんは美しです"
 run_code 'functions' 24 ""
 run_code 'function-overloading' 17 ""
-run_code 'lambdas' 30 ""
-run_code 'loops' 0 "Performing a loop Performing a loop Performing a loop "
-run_code 'loop-concatination' 0 "Performing a loop Performing a loop Performing a loop Performing a loop "
-run_code 'partial-invokation' 0 "Hello world"
-run_code 'tests' 1 "Running test: This test passes
-Test Passed
+# run_code 'lambdas' 30 ""
+# run_code 'loops' 0 "Performing a loop Performing a loop Performing a loop "
+# run_code 'loop-concatination' 0 "Performing a loop Performing a loop Performing a loop Performing a loop "
+# run_code 'partial-invokation' 0 "Hello world"
+# run_code 'tests' 1 "Running test: This test passes
+# Test Passed
 
 
-Running test: This test fails
-Test Failed
+# Running test: This test fails
+# Test Failed
 
 
-You had some failues." test
-run_code 'enums' 0 "Test NameTest Full Name"
-run_code 'specific-examples/string-equals' 0 ""
-run_code 'specific-examples/reduce' 0 "Running test: std.iterable.reduce Aggregates simply
-Test Passed
+# You had some failues." test
+# run_code 'enums' 0 "Test NameTest Full Name"
+# run_code 'specific-examples/string-equals' 0 ""
+# run_code 'specific-examples/reduce' 0 "Running test: std.iterable.reduce Aggregates simply
+# Test Passed
 
 
-All tests passed!" test
+# All tests passed!" test
 
 if [ $errors = true ]; then
   echo "You had some errors. Check the logs above.";

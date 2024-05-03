@@ -1,0 +1,13 @@
+namespace App {
+  using Console;
+
+  export unsafe fn main(): int {
+    counter -> while [$ < 3i] (current) -> current + 1i;
+
+    iterator -> iterate [counter] (index) -> "Performing a loop ";
+
+    message -> reduce[iterator, ""] (item, current) -> current.concat(item);
+
+    return message.Log();
+  }
+}

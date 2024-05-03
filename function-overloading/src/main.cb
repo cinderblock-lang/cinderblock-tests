@@ -1,8 +1,4 @@
 namespace test.io {
-  unsafe fn sys_print(data: string, length: int): null {
-    return system(1i, 1i, data, length);
-  }
-
   export unsafe fn fetch(data: int): int {
     return data + 5i;
   }
