@@ -1,5 +1,5 @@
 namespace App {
-  fn FunctionTest(): string {
+  fn FunctionTest(): int {
     message -> 24i;
 
     return message;

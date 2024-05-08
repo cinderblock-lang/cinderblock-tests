@@ -1,5 +1,5 @@
 namespace App {
-  fn LambdaTest(): () -> string {
+  fn LambdaTest(): () -> int {
     number -> 30i;
 
     return fn () -> number;

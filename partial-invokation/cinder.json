@@ -1,20 +1,6 @@
 {
   "name": "app",
-  "files": [
-    "./src/main.cb",
-    {
-      "type": "c",
-      "path": "./src/test.c",
-      "namespace": "Console",
-      "functions": {
-        "Log": {
-          "c_name": "ConsoleLog",
-          "args": ["string"],
-          "returns": "int"
-        }
-      }
-    }
-  ],
+  "files": ["./src/main.cb"],
   "libs": [],
   "targets": ["linux"],
   "bin": "bin",

@@ -3,7 +3,7 @@ namespace App {
 
   fn length(s: string): int {
     checker ->
-      fn (i: int) ->
+      fn (i: int): int ->
         if (s.get_char(i) > 0i) i;
         else checker(i + 1i);
     

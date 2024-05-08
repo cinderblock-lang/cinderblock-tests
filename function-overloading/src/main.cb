@@ -4,7 +4,7 @@ namespace test.io {
   }
 
   export struct Error {
-    number: string;
+    number: int;
   }
 
   export unsafe fn fetch(data: Error): int {
